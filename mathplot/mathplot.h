@@ -209,6 +209,8 @@
 /// An epsilon for scale to avoid to print a real zero in place of very small number
 #define EPSILON_SCALE   1e-20
 
+#define MAX_SCALE 1e12
+
 /// A small extra margin for the plot boundary
 #define EXTRA_MARGIN  8
 

@@ -71,6 +71,8 @@
 #include <iostream> // used for std::ifstream in LoadFile() function
 #include <cstring>
 
+#include <fmt/format.h>
+
 // If we want icon on the popup menu
 #define USE_ICON
 #ifdef USE_ICON
@@ -2475,6 +2477,7 @@ void mpScaleX::DrawScaleName(wxDC &dc, mpWindow &w, int origin, int labelSize)
 
 void mpScaleX::DoPlot(wxDC &dc, mpWindow &w)
 {
+  fmt::print("PloxX 1\n");
   int orgy = GetOrigin(w);
 
   // Draw nothing if we are outside margins
@@ -2511,7 +2514,9 @@ void mpScaleX::DoPlot(wxDC &dc, mpWindow &w)
   // Draw grid, ticks and compute max label length
   for (n = n0; n < end; n += step)
   {
+    fmt::print("n = {}, end = {}, step = {}", n, end, step);
     const int p = w.x2p(n);
+    fmt::print(" p = {}\n", p);
 #if defined(MATHPLOT_DO_LOGGING) && defined(MATHPLOT_LOG_SCALE)
     wxLogMessage(_T("mpScaleX::Plot: n: %f -> p = %d"), n, p);
 #endif
@@ -2554,6 +2559,8 @@ void mpScaleX::DoPlot(wxDC &dc, mpWindow &w)
 
   // Draw axis name
   DrawScaleName(dc, w, orgy, labelH);
+
+  fmt::print("PloxX 2\n");
 }
 
 //-----------------------------------------------------------------------------
@@ -3350,11 +3357,21 @@ void mpWindow::Fit(const mpRange<double> &rangeX, std::unordered_map<int, mpRang
   double Ax, Ay;
 
   Ax = rangeX.Length();
+  if(!ISNOTNULL(Ax))
+  {
+    fmt::print("Zoom limit x 2\n");
+//    return;
+  }
   m_AxisDataX.scale = ISNOTNULL(Ax) ? m_plotWidth / Ax : 1;
 
   for (MP_LOOP_ITER : m_AxisDataYList)
   {
     Ay = rangeY[m_yID].Length();
+    if(!ISNOTNULL(Ay))
+    {
+      fmt::print("Zoom limit y 1\n");
+//      return;
+    }
     m_yData.scale = ISNOTNULL(Ay) ? m_plotHeight / Ay : 1;
   }
 
@@ -3442,6 +3459,12 @@ void mpWindow::DoZoomXCalc(bool zoomIn, wxCoord staticXpixel)
   double staticX = p2x(staticXpixel);
   // Zoom:
   double zoomFactor = zoomIn ? m_zoomIncrementalFactor : (1.0 / m_zoomIncrementalFactor);
+
+  if((m_AxisDataX.scale * zoomFactor) > MAX_SCALE)
+  {
+    fmt::print("Zoom limit x 1\n");
+//    return;
+  }
   m_AxisDataX.scale *= zoomFactor;
 
   // Adjust the new m_posx
@@ -3468,6 +3491,12 @@ void mpWindow::DoZoomYCalc(bool zoomIn, wxCoord staticYpixel, mpOptional_int yAx
     if (MP_OPTTEST(yAxisID) && (m_yID != MP_OPTGET(yAxisID)))
       continue;
 
+    if((m_yData.scale * zoomFactor) > MAX_SCALE)
+    {
+      fmt::print("Zoom limit y 2\n");
+//      return;
+    }
+
     // Preserve the position of the clicked point:
     double staticY = p2y(staticYpixel, m_yID);
     // Zoom:
@@ -3484,6 +3513,12 @@ void mpWindow::DoZoomYCalc(bool zoomIn, wxCoord staticYpixel, mpOptional_int yAx
 
 void mpWindow::SetScaleXAndCenter(double scaleX)
 {
+  if(scaleX > MAX_SCALE)
+  {
+    fmt::print("Zoom limit x 3\n");
+//    return;
+  }
+
   // Zoom around center
   wxCoord centerXPixel = (m_plotWidth / 2) + m_margin.left;
 
@@ -3503,6 +3538,12 @@ void mpWindow::SetScaleYAndCenter(double scaleY, int yAxisID)
 {
   if (m_AxisDataYList.count(yAxisID) == 0)
     return;
+
+  if(scaleY > MAX_SCALE)
+  {
+    fmt::print("Zoom limit y 3\n");
+//    return;
+  }
 
   // Zoom around center
   wxCoord centerYpixel = (m_plotHeight / 2) + m_margin.top;
@@ -3543,6 +3584,10 @@ void mpWindow::Zoom(bool zoomIn, const wxPoint &centerPoint)
     DoZoomXCalc(zoomIn, centerPoint.x);
     DoZoomYCalc(zoomIn, centerPoint.y);
   }
+
+  fmt::print("posX {}, posY {}, scaleX {}, scaleY {}, minX {}, minY {}, maxX {}, minY {}\n",
+      m_AxisDataX.pos, m_AxisDataYList[0].pos, m_AxisDataX.scale, m_AxisDataYList[0].scale, m_AxisDataX.desired.min, m_AxisDataYList[0].desired.min, m_AxisDataX.desired.max, m_AxisDataYList[0].desired.max);
+
 
   UpdateAll();
 }
@@ -4024,6 +4069,7 @@ void mpWindow::DelAllYAxisAfterID(mpDeleteAction alsoDeleteObject, int yAxisID, 
 
 void mpWindow::OnPaint(wxPaintEvent &WXUNUSED(event))
 {
+  fmt::print("OnPaint 1\n");
 #ifdef _WIN32
   wxPaintDC dc(this);
 #else
@@ -4105,6 +4151,8 @@ void mpWindow::OnPaint(wxPaintEvent &WXUNUSED(event))
   // We redraw the cross if necessary. We pass the mouse position if we do a pan operation.
   if (m_magnetize)
     m_magnet.UpdatePlot(dc, m_mouseRClick);
+
+  fmt::print("OnPaint 2\n");
 
   m_repainting = false;
 }
@@ -4268,6 +4316,7 @@ bool mpWindow::UpdateBBox()
 
 void mpWindow::UpdateAll()
 {
+  fmt::print("Update all 1\n");
   // Make sure axis width is up to date
   for (const MP_LOOP_ITER : m_AxisDataYList)
   {
@@ -4322,7 +4371,9 @@ void mpWindow::UpdateAll()
     }
   }
 
+  fmt::print("Update all 2\n");
   Refresh();
+  fmt::print("Update all 3\n");
 
   CheckAndReportDesiredBoundsChanges();
 }
