@@ -293,6 +293,7 @@ class MathPlotConfigDialog: public wxDialog
     wxCheckBox* cbSeriesOutside;
     wxCheckBox* cbSeriesShowName;
     wxCheckBox* cbSeriesVisible;
+    wxCheckBox* cbShowSeriesValues;
     wxCheckBox* cbTitleVisible;
     wxCheckBox* cbTractable;
     wxChoice* ChoiceAxis;
