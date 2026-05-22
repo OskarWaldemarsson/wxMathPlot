@@ -1014,6 +1014,26 @@ void mpInfoLegend::DrawContent(wxDC &dc, mpWindow &w)
       mpRect bound = w.GetPlotBoundaries(true);
       dc.SetPen(*wxBLACK_PEN);
       dc.DrawLine(w.GetMousePosition().x, bound.top, w.GetMousePosition().x, bound.bottom);
+
+      for (unsigned int p = 0; p < w.CountAllLayers(); p++)
+      {
+        mpLayer* layer = w.GetLayer(p);
+        if (layer->GetLayerType() == mpLAYER_PLOT)
+        {
+          mpFunction& function = static_cast<mpFunction&>(*layer);
+          if (function.IsVisible() || (function.GetLegendIsAlwaysVisible()))
+          {
+            double mouseXValue = w.p2x(w.GetMousePosition().x);
+            std::optional<double> value = function.GetSeriesValue(mouseXValue);
+            if(value)
+            {
+              dc.SetPen(wxPen(*wxBLACK, 2));          // Border color + thickness
+              dc.SetBrush(wxBrush(*wxRED));           // Fill color
+              dc.DrawCircle(w.GetMousePosition().x, w.y2p(*value, function.GetYAxisID()), 5);
+            }
+          }
+        }
+      }
     }
   }
 }
