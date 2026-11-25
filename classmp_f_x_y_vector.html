@@ -69,9 +69,8 @@ Collaboration diagram for mpFXYVector:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a675c1ffb26f96d051bf30aa45364c12b" id="r_a675c1ffb26f96d051bf30aa45364c12b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a675c1ffb26f96d051bf30aa45364c12b">mpFXYVector</a> (const wxString &amp;name=wxEmptyString, int flags=<a class="el" href="mathplot_8h.html#ae52a128fe012488cde8e0c969ddce849aa30d7ba36a5130bb577aaf12a3721556">mpALIGN_SW</a>, bool viewAsBar=false, unsigned int yAxisID=0)</td></tr>
-<tr class="memitem:a4ba1b045053c4a7f4939d4d64159a39b" id="r_a4ba1b045053c4a7f4939d4d64159a39b"><td class="memItemLeft" align="right" valign="top"><a id="a4ba1b045053c4a7f4939d4d64159a39b" name="a4ba1b045053c4a7f4939d4d64159a39b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~mpFXYVector</b> () override</td></tr>
-<tr class="memdesc:a4ba1b045053c4a7f4939d4d64159a39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">destrutor <br /></td></tr>
+<tr class="memitem:ac4eb1ffadfca048b12151b51c4b36399" id="r_ac4eb1ffadfca048b12151b51c4b36399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4eb1ffadfca048b12151b51c4b36399">~mpFXYVector</a> () override=default</td></tr>
+<tr class="memdesc:ac4eb1ffadfca048b12151b51c4b36399"><td class="mdescLeft">&#160;</td><td class="mdescRight">destrutor Note: Default destructor relies on RAII: std::vector destructors automatically release all allocated memory.  <br /></td></tr>
 <tr class="memitem:a760c8520a011747f27fe2980d787b78d" id="r_a760c8520a011747f27fe2980d787b78d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760c8520a011747f27fe2980d787b78d">SetData</a> (const std::vector&lt; double &gt; &amp;xs, const std::vector&lt; double &gt; &amp;ys)</td></tr>
 <tr class="memdesc:a760c8520a011747f27fe2980d787b78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the internal data: the set of points to draw.  <br /></td></tr>
 <tr class="memitem:a4bb4e6ac8cfb9e229746669e61e799c9" id="r_a4bb4e6ac8cfb9e229746669e61e799c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bb4e6ac8cfb9e229746669e61e799c9">Clear</a> () override</td></tr>
@@ -232,8 +231,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a06309b34dcd6819baf75b487b7e9c74c inherit pro_methods_classmp_layer" id="r_a06309b34dcd6819baf75b487b7e9c74c"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateContext</b> (wxDC &amp;dc) const</td></tr>
 <tr class="memdesc:a06309b34dcd6819baf75b487b7e9c74c inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the context. <br /></td></tr>
-<tr class="memitem:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer" id="r_ac4aaa9dc0c6db40402757e8fc658dfb4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmp_layer.html#ac4aaa9dc0c6db40402757e8fc658dfb4">DoBeforePlot</a> ()</td></tr>
-<tr class="memdesc:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">If we need to do something before plot like reinitialize some parameters ... Return true by default that mean that we can continue next operation.  <br /></td></tr>
+<tr class="memitem:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer" id="r_ac4aaa9dc0c6db40402757e8fc658dfb4"><td class="memItemLeft" align="right" valign="top">
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>DoBeforePlot</b> ()</td></tr>
+<tr class="memdesc:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">If we need to do something before plot like reinitialize some parameters ... Return true by default that mean that we can continue next operation. <br /></td></tr>
 <tr class="memitem:aefdc0499d3f12bf9e4b668b84ffee367 inherit pro_methods_classmp_layer" id="r_aefdc0499d3f12bf9e4b668b84ffee367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmp_layer.html#aefdc0499d3f12bf9e4b668b84ffee367">CheckLog</a> (double *x, double *y, int yAxisID)</td></tr>
 <tr class="memdesc:aefdc0499d3f12bf9e4b668b84ffee367 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if we are in log axis and if true return the log of the values.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -283,7 +283,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaX</b></td></
 double&#160;</td><td class="memItemRight" valign="bottom"><b>m_deltaY</b></td></tr>
 <tr class="memdesc:a991ea6c88d4896675860bb33e2efccd1 inherit pro_attribs_classmp_f_x_y"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min delta between 2 consecutive coordinate on y direction. <br /></td></tr>
 <tr class="memitem:a2af6758fc00fb268447d882e112566a6 inherit pro_attribs_classmp_f_x_y" id="r_a2af6758fc00fb268447d882e112566a6"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_BarWidth</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_BarWidth</b> = 1</td></tr>
 <tr class="memdesc:a2af6758fc00fb268447d882e112566a6 inherit pro_attribs_classmp_f_x_y"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bar width in pixels when the XY series is drawn in bar mode. <br /></td></tr>
 <tr class="memitem:a9e49434ac8e55d0e6f33508106e24f7b inherit pro_attribs_classmp_f_x_y" id="r_a9e49434ac8e55d0e6f33508106e24f7b"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_ViewAsBar</b> = false</td></tr>
@@ -318,10 +318,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_maxNOfPoints</b><
 const <a class="el" href="mathplot_8h.html#a5dba29b7583413d9cb8b98a013628b21">mpLayerType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_type</b></td></tr>
 <tr class="memdesc:a7aa14bb2308c71f8369eb8dcb91be219 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer type mpLAYER_*. <br /></td></tr>
 <tr class="memitem:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer" id="r_a54ff30656749550679c0918f726c8a68"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classmp_window.html">mpWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_win</b></td></tr>
-<tr class="memdesc:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The wxWindow handle. <br /></td></tr>
+<a class="el" href="classmp_window.html">mpWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_win</b> = nullptr</td></tr>
+<tr class="memdesc:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The wxWindow handle not yet available. <br /></td></tr>
 <tr class="memitem:a7e8775e2f781680bc662698b7e33d358 inherit pro_attribs_classmp_layer" id="r_a7e8775e2f781680bc662698b7e33d358"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_subtype</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_subtype</b> = -1</td></tr>
 <tr class="memdesc:a7e8775e2f781680bc662698b7e33d358 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer sub type, set in constructors. <br /></td></tr>
 <tr class="memitem:a1b6acab5d04921f905df4bcdbfd334e1 inherit pro_attribs_classmp_layer" id="r_a1b6acab5d04921f905df4bcdbfd334e1"><td class="memItemLeft" align="right" valign="top">
 wxFont&#160;</td><td class="memItemRight" valign="bottom"><b>m_font</b></td></tr>
@@ -336,32 +336,32 @@ wxPen&#160;</td><td class="memItemRight" valign="bottom"><b>m_pen</b></td></tr>
 wxBrush&#160;</td><td class="memItemRight" valign="bottom"><b>m_brush</b></td></tr>
 <tr class="memdesc:ac3d0ae222700628378471709bc62f76c inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer's brush. Default wxTRANSPARENT_BRUSH. <br /></td></tr>
 <tr class="memitem:ac0894b3ff9ce5a82524256497599636c inherit pro_attribs_classmp_layer" id="r_ac0894b3ff9ce5a82524256497599636c"><td class="memItemLeft" align="right" valign="top">
-wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b></td></tr>
+wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:ac0894b3ff9ce5a82524256497599636c inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer's name. <br /></td></tr>
 <tr class="memitem:a634c0423aad7ce8b908b9122952e5d5d inherit pro_attribs_classmp_layer" id="r_a634c0423aad7ce8b908b9122952e5d5d"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showName</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showName</b> = false</td></tr>
 <tr class="memdesc:a634c0423aad7ce8b908b9122952e5d5d inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">States whether the name of the layer must be shown. Default : false. <br /></td></tr>
 <tr class="memitem:a2254c13cc469d401eaa0833a3d4a4034 inherit pro_attribs_classmp_layer" id="r_a2254c13cc469d401eaa0833a3d4a4034"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawOutsideMargins</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawOutsideMargins</b> = false</td></tr>
 <tr class="memdesc:a2254c13cc469d401eaa0833a3d4a4034 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select if the layer should draw only inside margins or over all DC. Default : false. <br /></td></tr>
 <tr class="memitem:a6388b1d9d1480546c27d00eb989fe818 inherit pro_attribs_classmp_layer" id="r_a6388b1d9d1480546c27d00eb989fe818"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_visible</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_visible</b> = true</td></tr>
 <tr class="memdesc:a6388b1d9d1480546c27d00eb989fe818 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles layer visibility. Default : true. <br /></td></tr>
 <tr class="memitem:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer" id="r_aa3ea60fa1be7315614cea3124e5d69c2"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_tractable</b></td></tr>
-<tr class="memdesc:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer tractable. <br /></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_tractable</b> = false</td></tr>
+<tr class="memdesc:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer tractable. Default : false. <br /></td></tr>
 <tr class="memitem:ab36829f686179b68375f181400329383 inherit pro_attribs_classmp_layer" id="r_ab36829f686179b68375f181400329383"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_flags</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_flags</b> = <a class="el" href="mathplot_8h.html#ae52a128fe012488cde8e0c969ddce849a745266ad1df6226b86f27e9d3f46ee9b">mpALIGN_SE</a></td></tr>
 <tr class="memdesc:ab36829f686179b68375f181400329383 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds label alignment. Default : mpALIGN_SW for series and mpALIGN_CENTER for scale. <br /></td></tr>
 <tr class="memitem:a64a14a22b372feff804190f4da408eba inherit pro_attribs_classmp_layer" id="r_a64a14a22b372feff804190f4da408eba"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structmp_rect.html">mpRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_plotBoundaries</b></td></tr>
 <tr class="memdesc:a64a14a22b372feff804190f4da408eba inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The boundaries for plotting curve calculated by <a class="el" href="classmp_window.html" title="Canvas for plotting mpLayer implementations.">mpWindow</a>. <br /></td></tr>
 <tr class="memitem:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer" id="r_a62dea60b6a809330729ec11d41240481"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td></tr>
-<tr class="memdesc:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer can be deleted. <br /></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b> = true</td></tr>
+<tr class="memdesc:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer can be deleted. Default : true. <br /></td></tr>
 <tr class="memitem:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer" id="r_a166c7f930aa85c4e2de529c682a3fdd7"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="mathplot_8h.html#a65d69935e2ff04b6a1425f5dd820d120">mpLayerZOrder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_ZIndex</b></td></tr>
-<tr class="memdesc:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index in Z-Order to draw the layer. <br /></td></tr>
+<a class="el" href="mathplot_8h.html#a65d69935e2ff04b6a1425f5dd820d120">mpLayerZOrder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_ZIndex</b> = <a class="el" href="mathplot_8h.html#ac2a39bcaf885b255fe3cfa97ad43018ca1a186a1e671b693ac5823c620c610afd">mpZIndex_BACKGROUND</a></td></tr>
+<tr class="memdesc:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index in Z-Order. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class providing graphs functionality for a 2D plot (either continuous or a set of points), from vectors of data. </p>
@@ -377,6 +377,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td><
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">mpFXYVector::mpFXYVector </td>
@@ -399,6 +402,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td><
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>yAxisID</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -409,6 +417,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td><
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac4eb1ffadfca048b12151b51c4b36399" name="ac4eb1ffadfca048b12151b51c4b36399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4eb1ffadfca048b12151b51c4b36399">&#9670;&#160;</a></span>~mpFXYVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mpFXYVector::~mpFXYVector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>destrutor Note: Default destructor relies on RAII: std::vector destructors automatically release all allocated memory. </p>
+<p>So, no need to call <a class="el" href="#a4bb4e6ac8cfb9e229746669e61e799c9" title="Clears all the data, leaving the layer empty.">Clear()</a> </p>
 
 </div>
 </div>

@@ -85,9 +85,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab109c6ff53e5831c17d41e27497cc563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limited constructor. <br /></td></tr>
 <tr class="memitem:a88d0c29460b7c791d04b8a3067629c98" id="r_a88d0c29460b7c791d04b8a3067629c98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88d0c29460b7c791d04b8a3067629c98">mpInfoCoords</a> (wxPoint pos, const wxBrush &amp;brush= *wxTRANSPARENT_BRUSH, <a class="el" href="mathplot_8h.html#aa2d0916b98f158c8771320d4b71f6a58">mpLocation</a> location=<a class="el" href="mathplot_8h.html#a1e649b85ade4eaa24f49a72a5ec3143baf7becd24af2c07c1931a27ac4cfdae90">mpMarginUser</a>)</td></tr>
 <tr class="memdesc:a88d0c29460b7c791d04b8a3067629c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complete constructor, setting initial rectangle and background brush.  <br /></td></tr>
-<tr class="memitem:a3c9d4046a2d84b5a0522c5908a1de55c" id="r_a3c9d4046a2d84b5a0522c5908a1de55c"><td class="memItemLeft" align="right" valign="top"><a id="a3c9d4046a2d84b5a0522c5908a1de55c" name="a3c9d4046a2d84b5a0522c5908a1de55c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~mpInfoCoords</b> () override</td></tr>
-<tr class="memdesc:a3c9d4046a2d84b5a0522c5908a1de55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
+<tr class="memitem:aa020a8fe5e6e961b67690b465754acad" id="r_aa020a8fe5e6e961b67690b465754acad"><td class="memItemLeft" align="right" valign="top"><a id="aa020a8fe5e6e961b67690b465754acad" name="aa020a8fe5e6e961b67690b465754acad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~mpInfoCoords</b> () override=default</td></tr>
+<tr class="memdesc:aa020a8fe5e6e961b67690b465754acad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
 <tr class="memitem:a64f7580347d61b59b84bf72220073c12" id="r_a64f7580347d61b59b84bf72220073c12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64f7580347d61b59b84bf72220073c12">UpdateInfo</a> (<a class="el" href="classmp_window.html">mpWindow</a> &amp;w, wxEvent &amp;event) override</td></tr>
 <tr class="memdesc:a64f7580347d61b59b84bf72220073c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the content of the info box.  <br /></td></tr>
 <tr class="memitem:adfd84f83ecb4a936e210aeeff3c92a48" id="r_adfd84f83ecb4a936e210aeeff3c92a48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfd84f83ecb4a936e210aeeff3c92a48">ErasePlot</a> (wxDC &amp;, <a class="el" href="classmp_window.html">mpWindow</a> &amp;) override</td></tr>
@@ -221,15 +221,16 @@ Protected Member Functions</h2></td></tr>
 <tr class="inherit_header pro_methods_classmp_info_layer"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classmp_info_layer')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="classmp_info_layer.html">mpInfoLayer</a></td></tr>
 <tr class="memitem:ad3792b779238d2c171388fd9a05c9f85 inherit pro_methods_classmp_info_layer" id="r_ad3792b779238d2c171388fd9a05c9f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmp_info_layer.html#ad3792b779238d2c171388fd9a05c9f85">DoPlot</a> (wxDC &amp;dc, <a class="el" href="classmp_window.html">mpWindow</a> &amp;w) override</td></tr>
 <tr class="memdesc:ad3792b779238d2c171388fd9a05c9f85 inherit pro_methods_classmp_info_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot method.  <br /></td></tr>
-<tr class="memitem:a685f2662d8a708a2c886e4aadcee84b1 inherit pro_methods_classmp_info_layer" id="r_a685f2662d8a708a2c886e4aadcee84b1"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetInfoRectangle</b> (<a class="el" href="classmp_window.html">mpWindow</a> &amp;w, int width=0, int height=0)</td></tr>
-<tr class="memdesc:a685f2662d8a708a2c886e4aadcee84b1 inherit pro_methods_classmp_info_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the dimensions and position of the <a class="el" href="classmp_info_layer.html" title="Base class to create small rectangular info boxes mpInfoLayer is the base class to create a small rec...">mpInfoLayer</a> rectangle. <br /></td></tr>
+<tr class="memitem:ae3e660db88671c1368436a53aa84169f inherit pro_methods_classmp_info_layer" id="r_ae3e660db88671c1368436a53aa84169f"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetInfoRectangle</b> (const <a class="el" href="classmp_window.html">mpWindow</a> &amp;w, int width=0, int height=0)</td></tr>
+<tr class="memdesc:ae3e660db88671c1368436a53aa84169f inherit pro_methods_classmp_info_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the dimensions and position of the <a class="el" href="classmp_info_layer.html" title="Base class to create small rectangular info boxes mpInfoLayer is the base class to create a small rec...">mpInfoLayer</a> rectangle. <br /></td></tr>
 <tr class="inherit_header pro_methods_classmp_layer"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classmp_layer')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="classmp_layer.html">mpLayer</a></td></tr>
 <tr class="memitem:a06309b34dcd6819baf75b487b7e9c74c inherit pro_methods_classmp_layer" id="r_a06309b34dcd6819baf75b487b7e9c74c"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateContext</b> (wxDC &amp;dc) const</td></tr>
 <tr class="memdesc:a06309b34dcd6819baf75b487b7e9c74c inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the context. <br /></td></tr>
-<tr class="memitem:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer" id="r_ac4aaa9dc0c6db40402757e8fc658dfb4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmp_layer.html#ac4aaa9dc0c6db40402757e8fc658dfb4">DoBeforePlot</a> ()</td></tr>
-<tr class="memdesc:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">If we need to do something before plot like reinitialize some parameters ... Return true by default that mean that we can continue next operation.  <br /></td></tr>
+<tr class="memitem:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer" id="r_ac4aaa9dc0c6db40402757e8fc658dfb4"><td class="memItemLeft" align="right" valign="top">
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>DoBeforePlot</b> ()</td></tr>
+<tr class="memdesc:ac4aaa9dc0c6db40402757e8fc658dfb4 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">If we need to do something before plot like reinitialize some parameters ... Return true by default that mean that we can continue next operation. <br /></td></tr>
 <tr class="memitem:aefdc0499d3f12bf9e4b668b84ffee367 inherit pro_methods_classmp_layer" id="r_aefdc0499d3f12bf9e4b668b84ffee367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmp_layer.html#aefdc0499d3f12bf9e4b668b84ffee367">CheckLog</a> (double *x, double *y, int yAxisID)</td></tr>
 <tr class="memdesc:aefdc0499d3f12bf9e4b668b84ffee367 inherit pro_methods_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if we are in log axis and if true return the log of the values.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -239,7 +240,7 @@ Protected Attributes</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_show</b></td></tr>
 <tr class="memdesc:ac8d10af340aced047c87c73b0fde83f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if magnet shall be shown in plot. <br /></td></tr>
 <tr class="memitem:a8b190df77127f7c9355e71dc3d836080" id="r_a8b190df77127f7c9355e71dc3d836080"><td class="memItemLeft" align="right" valign="top"><a id="a8b190df77127f7c9355e71dc3d836080" name="a8b190df77127f7c9355e71dc3d836080"></a>
-wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_content</b></td></tr>
+wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_content</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:a8b190df77127f7c9355e71dc3d836080"><td class="mdescLeft">&#160;</td><td class="mdescRight">string holding the coordinates to be drawn. <br /></td></tr>
 <tr class="memitem:a4ce7a8a45226c1453b10348579dc1453" id="r_a4ce7a8a45226c1453b10348579dc1453"><td class="memItemLeft" align="right" valign="top"><a id="a4ce7a8a45226c1453b10348579dc1453" name="a4ce7a8a45226c1453b10348579dc1453"></a>
 <a class="el" href="mathplot_8h.html#ab285929a0e74f3648f421ec238859a6c">mpLabelType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_labelType</b></td></tr>
@@ -261,7 +262,7 @@ std::vector&lt; wxColor &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memdesc:a5a9e4795e8094589d121f6137b25ba3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colors of the series in the order they were added to the <a class="el" href="classmp_window.html" title="Canvas for plotting mpLayer implementations.">mpWindow</a>. <br /></td></tr>
 <tr class="inherit_header pro_attribs_classmp_info_layer"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classmp_info_layer')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classmp_info_layer.html">mpInfoLayer</a></td></tr>
 <tr class="memitem:a607ac77f719d43452db8956bad419b6d inherit pro_attribs_classmp_info_layer" id="r_a607ac77f719d43452db8956bad419b6d"><td class="memItemLeft" align="right" valign="top">
-wxRect&#160;</td><td class="memItemRight" valign="bottom"><b>m_dim</b></td></tr>
+wxRect&#160;</td><td class="memItemRight" valign="bottom"><b>m_dim</b> = wxRect(0, 0, 1, 1)</td></tr>
 <tr class="memdesc:a607ac77f719d43452db8956bad419b6d inherit pro_attribs_classmp_info_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The bounding rectangle of the <a class="el" href="classmp_info_layer.html" title="Base class to create small rectangular info boxes mpInfoLayer is the base class to create a small rec...">mpInfoLayer</a> box (may be resized dynamically by the Plot method). <br /></td></tr>
 <tr class="memitem:a2ac793bbc24ec4f280cdef9589cccb0a inherit pro_attribs_classmp_info_layer" id="r_a2ac793bbc24ec4f280cdef9589cccb0a"><td class="memItemLeft" align="right" valign="top">
 wxBitmap *&#160;</td><td class="memItemRight" valign="bottom"><b>m_info_bmp</b></td></tr>
@@ -283,10 +284,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_relY</b></td></tr
 const <a class="el" href="mathplot_8h.html#a5dba29b7583413d9cb8b98a013628b21">mpLayerType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_type</b></td></tr>
 <tr class="memdesc:a7aa14bb2308c71f8369eb8dcb91be219 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer type mpLAYER_*. <br /></td></tr>
 <tr class="memitem:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer" id="r_a54ff30656749550679c0918f726c8a68"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classmp_window.html">mpWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_win</b></td></tr>
-<tr class="memdesc:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The wxWindow handle. <br /></td></tr>
+<a class="el" href="classmp_window.html">mpWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_win</b> = nullptr</td></tr>
+<tr class="memdesc:a54ff30656749550679c0918f726c8a68 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The wxWindow handle not yet available. <br /></td></tr>
 <tr class="memitem:a7e8775e2f781680bc662698b7e33d358 inherit pro_attribs_classmp_layer" id="r_a7e8775e2f781680bc662698b7e33d358"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_subtype</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_subtype</b> = -1</td></tr>
 <tr class="memdesc:a7e8775e2f781680bc662698b7e33d358 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer sub type, set in constructors. <br /></td></tr>
 <tr class="memitem:a1b6acab5d04921f905df4bcdbfd334e1 inherit pro_attribs_classmp_layer" id="r_a1b6acab5d04921f905df4bcdbfd334e1"><td class="memItemLeft" align="right" valign="top">
 wxFont&#160;</td><td class="memItemRight" valign="bottom"><b>m_font</b></td></tr>
@@ -301,32 +302,32 @@ wxPen&#160;</td><td class="memItemRight" valign="bottom"><b>m_pen</b></td></tr>
 wxBrush&#160;</td><td class="memItemRight" valign="bottom"><b>m_brush</b></td></tr>
 <tr class="memdesc:ac3d0ae222700628378471709bc62f76c inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer's brush. Default wxTRANSPARENT_BRUSH. <br /></td></tr>
 <tr class="memitem:ac0894b3ff9ce5a82524256497599636c inherit pro_attribs_classmp_layer" id="r_ac0894b3ff9ce5a82524256497599636c"><td class="memItemLeft" align="right" valign="top">
-wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b></td></tr>
+wxString&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:ac0894b3ff9ce5a82524256497599636c inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer's name. <br /></td></tr>
 <tr class="memitem:a634c0423aad7ce8b908b9122952e5d5d inherit pro_attribs_classmp_layer" id="r_a634c0423aad7ce8b908b9122952e5d5d"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showName</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showName</b> = false</td></tr>
 <tr class="memdesc:a634c0423aad7ce8b908b9122952e5d5d inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">States whether the name of the layer must be shown. Default : false. <br /></td></tr>
 <tr class="memitem:a2254c13cc469d401eaa0833a3d4a4034 inherit pro_attribs_classmp_layer" id="r_a2254c13cc469d401eaa0833a3d4a4034"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawOutsideMargins</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawOutsideMargins</b> = false</td></tr>
 <tr class="memdesc:a2254c13cc469d401eaa0833a3d4a4034 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select if the layer should draw only inside margins or over all DC. Default : false. <br /></td></tr>
 <tr class="memitem:a6388b1d9d1480546c27d00eb989fe818 inherit pro_attribs_classmp_layer" id="r_a6388b1d9d1480546c27d00eb989fe818"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_visible</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_visible</b> = true</td></tr>
 <tr class="memdesc:a6388b1d9d1480546c27d00eb989fe818 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles layer visibility. Default : true. <br /></td></tr>
 <tr class="memitem:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer" id="r_aa3ea60fa1be7315614cea3124e5d69c2"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_tractable</b></td></tr>
-<tr class="memdesc:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer tractable. <br /></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_tractable</b> = false</td></tr>
+<tr class="memdesc:aa3ea60fa1be7315614cea3124e5d69c2 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer tractable. Default : false. <br /></td></tr>
 <tr class="memitem:ab36829f686179b68375f181400329383 inherit pro_attribs_classmp_layer" id="r_ab36829f686179b68375f181400329383"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_flags</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_flags</b> = <a class="el" href="mathplot_8h.html#ae52a128fe012488cde8e0c969ddce849a745266ad1df6226b86f27e9d3f46ee9b">mpALIGN_SE</a></td></tr>
 <tr class="memdesc:ab36829f686179b68375f181400329383 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds label alignment. Default : mpALIGN_SW for series and mpALIGN_CENTER for scale. <br /></td></tr>
 <tr class="memitem:a64a14a22b372feff804190f4da408eba inherit pro_attribs_classmp_layer" id="r_a64a14a22b372feff804190f4da408eba"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structmp_rect.html">mpRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_plotBoundaries</b></td></tr>
 <tr class="memdesc:a64a14a22b372feff804190f4da408eba inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The boundaries for plotting curve calculated by <a class="el" href="classmp_window.html" title="Canvas for plotting mpLayer implementations.">mpWindow</a>. <br /></td></tr>
 <tr class="memitem:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer" id="r_a62dea60b6a809330729ec11d41240481"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td></tr>
-<tr class="memdesc:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer can be deleted. <br /></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b> = true</td></tr>
+<tr class="memdesc:a62dea60b6a809330729ec11d41240481 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the layer can be deleted. Default : true. <br /></td></tr>
 <tr class="memitem:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer" id="r_a166c7f930aa85c4e2de529c682a3fdd7"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="mathplot_8h.html#a65d69935e2ff04b6a1425f5dd820d120">mpLayerZOrder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_ZIndex</b></td></tr>
-<tr class="memdesc:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index in Z-Order to draw the layer. <br /></td></tr>
+<a class="el" href="mathplot_8h.html#a65d69935e2ff04b6a1425f5dd820d120">mpLayerZOrder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_ZIndex</b> = <a class="el" href="mathplot_8h.html#ac2a39bcaf885b255fe3cfa97ad43018ca1a186a1e671b693ac5823c620c610afd">mpZIndex_BACKGROUND</a></td></tr>
+<tr class="memdesc:a166c7f930aa85c4e2de529c682a3fdd7 inherit pro_attribs_classmp_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index in Z-Order. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements an overlay box which shows the mouse coordinates in plot units. </p>
@@ -362,6 +363,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td><
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">mpInfoCoords::mpInfoCoords </td>
@@ -379,6 +383,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_CanDelete</b></td><
           <td class="paramtype"><a class="el" href="mathplot_8h.html#aa2d0916b98f158c8771320d4b71f6a58">mpLocation</a></td>          <td class="paramname"><span class="paramname"><em>location</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="mathplot_8h.html#a1e649b85ade4eaa24f49a72a5ec3143baf7becd24af2c07c1931a27ac4cfdae90">mpMarginUser</a></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Complete constructor, setting initial rectangle and background brush. </p>
